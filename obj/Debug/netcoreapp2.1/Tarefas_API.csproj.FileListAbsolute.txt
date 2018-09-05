@@ -1,0 +1,14 @@
+C:\Users\vinicius.barreira\source\repos\Tarefas_API\bin\Debug\netcoreapp2.1\Tarefas_API.deps.json
+C:\Users\vinicius.barreira\source\repos\Tarefas_API\bin\Debug\netcoreapp2.1\Tarefas_API.runtimeconfig.json
+C:\Users\vinicius.barreira\source\repos\Tarefas_API\bin\Debug\netcoreapp2.1\Tarefas_API.runtimeconfig.dev.json
+C:\Users\vinicius.barreira\source\repos\Tarefas_API\bin\Debug\netcoreapp2.1\Tarefas_API.dll
+C:\Users\vinicius.barreira\source\repos\Tarefas_API\bin\Debug\netcoreapp2.1\Tarefas_API.pdb
+C:\Users\vinicius.barreira\source\repos\Tarefas_API\obj\Debug\netcoreapp2.1\Tarefas_API.csprojAssemblyReference.cache
+C:\Users\vinicius.barreira\source\repos\Tarefas_API\obj\Debug\netcoreapp2.1\Tarefas_API.csproj.CoreCompileInputs.cache
+C:\Users\vinicius.barreira\source\repos\Tarefas_API\obj\Debug\netcoreapp2.1\Tarefas_API.RazorAssemblyInfo.cache
+C:\Users\vinicius.barreira\source\repos\Tarefas_API\obj\Debug\netcoreapp2.1\Tarefas_API.RazorAssemblyInfo.cs
+C:\Users\vinicius.barreira\source\repos\Tarefas_API\obj\Debug\netcoreapp2.1\Tarefas_API.AssemblyInfoInputs.cache
+C:\Users\vinicius.barreira\source\repos\Tarefas_API\obj\Debug\netcoreapp2.1\Tarefas_API.AssemblyInfo.cs
+C:\Users\vinicius.barreira\source\repos\Tarefas_API\obj\Debug\netcoreapp2.1\Tarefas_API.RazorTargetAssemblyInfo.cache
+C:\Users\vinicius.barreira\source\repos\Tarefas_API\obj\Debug\netcoreapp2.1\Tarefas_API.dll
+C:\Users\vinicius.barreira\source\repos\Tarefas_API\obj\Debug\netcoreapp2.1\Tarefas_API.pdb
