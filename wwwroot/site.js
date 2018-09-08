@@ -1,17 +1,6 @@
-const uri = 'api/todo';
-let todos = null;
-function getCount(data) {
-    const el = $('#counter');
-    let name = 'to-do';
-    if (data) {
-        if (data > 1) {
-            name = 'to-dos';
-        }
-        el.text(data + ' ' + name);
-    } else {
-        el.html('No ' + name);
-    }
-}
+const uri = 'api/tarefas/';
+
+let tarefas = null;
 
 $(document).ready(function () {
     getData();
@@ -24,25 +13,25 @@ function getData() {
         success: function (data) {
             $('#todos').empty();
             getCount(data.length);
-            $.each(data, function (key, item) {
-                const checked = item.isComplete ? 'checked' : '';
 
-                $('<tr><td><input disabled="true" type="checkbox" ' + checked + '></td>' +
-                    '<td>' + item.name + '</td>' +
-                    '<td><button onclick="editItem(' + item.id + ')">Edit</button></td>' +
-                    '<td><button onclick="deleteItem(' + item.id + ')">Delete</button></td>' +
+            $.each(data, function (key, item) {
+                const checked = item.finalizada ? 'checked' : '';
+
+                $('<tr><td><input disabled="true" type="checkbox"' + checked + '></td>' +
+                    '<td>' + item.nome + '</td>' +
+                    '<td> <button onclick="editItem(' + item.id + ')">Editar</button> </td>' +
+                    '<td> <button onclick="deleteItem(' + item.id + ')">Apagar</button> </td>' +
                     '</tr>').appendTo($('#todos'));
             });
-
-            todos = data;
+            tarefas = data;
         }
     });
 }
 
 function addItem() {
     const item = {
-        'name': $('#add-name').val(),
-        'isComplete': false
+        'nome': $('#add-name').val(),
+        'finalizada': false
     };
 
     $.ajax({
@@ -72,20 +61,23 @@ function deleteItem(id) {
 }
 
 function editItem(id) {
-    $.each(todos, function (key, item) {
-        if (item.id === id) {
-            $('#edit-name').val(item.name);
+    $.each(tarefas, function (key, item) {
+        if (item != null && item.id === id) {
+            $('#edit-name').val(item.nome);
             $('#edit-id').val(item.id);
-            $('#edit-isComplete')[0].checked = item.isComplete;
+            $('#edit-isComplete')[0].checked = item.finalizada;
         }
     });
-    $('#spoiler').css({ 'display': 'block' });
+
+    $('#spoiler').show();
+
+    $('#tblTarefas').hide();
 }
 
 $('.my-form').on('submit', function () {
     const item = {
-        'name': $('#edit-name').val(),
-        'isComplete': $('#edit-isComplete').is(':checked'),
+        'nome': $('#edit-name').val(),
+        'finalizada': $('#edit-isComplete').is(':checked'),
         'id': $('#edit-id').val()
     };
 
@@ -105,5 +97,22 @@ $('.my-form').on('submit', function () {
 });
 
 function closeInput() {
-    $('#spoiler').css({ 'display': 'none' });
+    $('#spoiler').hide();
+
+    $('#tblTarefas').show();
+}
+
+function getCount(data) {
+    const el = $('#counter');
+    let name = 'Tarefa';
+    if (data) {
+        if (data > 1) {
+            name = 'Tarefas';
+        }
+        $('#tblTarefas').show();
+        el.text(data + ' ' + name);
+    } else {
+        $('#tblTarefas').hide();
+        el.html('Não existe nenhuma ' + name + ' cadastrada.');
+    }
 }

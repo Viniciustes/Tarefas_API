@@ -1,41 +1,79 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Tarefas_API.Models;
 
 namespace Tarefas_API.Controllers
 {
-    [Route("api/Tarefas")]
+    [Route("api/[controller]")]
     public class TarefasController : ControllerBase
     {
         private readonly TarefaContext _context;
+
         public TarefasController(TarefaContext context)
         {
             _context = context;
+        }
 
-            if (!_context.Tarefas.Any())
-            {
-                _context.Add(new Tarefa { Nome = "Tarefa 1" });
-                _context.Add(new Tarefa { Nome = "Tarefa 2" });
-                _context.SaveChanges();
-            }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var entity = await _context.Tarefas.FindAsync(id);
+
+            _context.Tarefas.Remove(entity ?? throw new InvalidOperationException());
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] Tarefa tarefa)
+        {
+            if (tarefa == null || tarefa.Id == 0)
+                BadRequest();
+
+            var _tarefa = await _context.Tarefas.FindAsync(id);
+
+            if (_tarefa == null)
+                NotFound();
+
+            _tarefa.Editar(tarefa);
+
+            _context.Tarefas.Update(_tarefa);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] Tarefa tarefa)
+        {
+            if (tarefa == null)
+                BadRequest();
+
+            await _context.Tarefas.AddAsync(tarefa);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtRoute("GetById", new { id = tarefa.Id }, tarefa);
         }
 
         [HttpGet]
-        public IList<Tarefa> GetAll()
+        public async Task<IList<Tarefa>> GetAll()
         {
-            return _context.Tarefas.ToList();
+            return await _context.Tarefas.ToAsyncEnumerable().ToList();
         }
 
-        [HttpGet("{id}", Name = "BuscarTarefa")]
-        public IActionResult GetById(int id)
+        [HttpGet("{id}", Name = "GetById")]
+        public async Task<IActionResult> GetById(int id)
         {
-            var tarefa = _context.Tarefas.Find(id);
-            
-            if (tarefa == null)
+            var value = await _context.Tarefas.FindAsync(id);
+
+            if (value == null)
                 NotFound();
-            
-            return Ok(tarefa);
+
+            return Ok(value);
         }
     }
 }

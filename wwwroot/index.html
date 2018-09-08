@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,40 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tarefas</title>
-
-    <style>
-        input[type='submit'], button, [aria-label] {
-            cursor: pointer;
-        }
-
-        #spoiler {
-            display: none;
-        }
-
-        table {
-            font-family: Arial, sans-serif;
-            border: 1px solid;
-            border-collapse: collapse;
-        }
-
-        th {
-            background-color: #0066CC;
-            color: white;
-        }
-
-        td {
-            border: 1px solid;
-            padding: 5px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" media="screen" href="layout.css" />
 </head>
 
 <body>
     <h1>Tarefas</h1>
-    <h3>Adicionar</h3>
+    <h3>Nova</h3>
     <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
         <input type="text" id="add-name" placeholder="Nova tarefa">
-        <input type="submit" value="Add">
+        <input type="submit" value="Adicionar">
     </form>
 
     <div id="spoiler">
@@ -48,17 +23,17 @@
             <input type="hidden" id="edit-id">
             <input type="checkbox" id="edit-isComplete">
             <input type="text" id="edit-name">
-            <input type="submit" value="Edit">
-            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+            <input type="submit" value="Editar">
+            <a onclick="closeInput()" aria-label="Fechar">&#10006;</a>
         </form>
     </div>
 
     <p id="counter"></p>
 
-    <table>
+    <table id="tblTarefas">
         <tr>
-            <th>Is Complete</th>
-            <th>Name</th>
+            <th>Finalizada</th>
+            <th>Nome</th>
             <th></th>
             <th></th>
         </tr>

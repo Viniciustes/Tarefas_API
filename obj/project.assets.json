@@ -11500,23 +11500,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vinicius.barreira\\.nuget\\packages\\": {},
+    "C:\\Users\\Vinicius\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vinicius.barreira\\source\\repos\\Tarefas_API\\Tarefas_API.csproj",
+      "projectUniqueName": "c:\\Users\\Vinicius\\source\\repos\\Tarefas_API\\Tarefas_API.csproj",
       "projectName": "Tarefas_API",
-      "projectPath": "C:\\Users\\vinicius.barreira\\source\\repos\\Tarefas_API\\Tarefas_API.csproj",
-      "packagesPath": "C:\\Users\\vinicius.barreira\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vinicius.barreira\\source\\repos\\Tarefas_API\\obj\\",
+      "projectPath": "c:\\Users\\Vinicius\\source\\repos\\Tarefas_API\\Tarefas_API.csproj",
+      "packagesPath": "C:\\Users\\Vinicius\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\Vinicius\\source\\repos\\Tarefas_API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\vinicius.barreira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Vinicius\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
